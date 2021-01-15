@@ -1,0 +1,945 @@
+﻿<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Bekannte Probleme: Studio, Brightcove Player und APIs</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="Produkt-Logo" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sprache wählen</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">Weitere Brightcove Docs</option>
+      
+        
+          <option value="https://support.brightcove.com">Dokumentation Home</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">Brightcove Publikum</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">Brightcove Leuchtfeuer</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">Brightcove Kampagne</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">Brightcove Social</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">Brightcove Spieler-Entwicklung</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">APIs für Video Cloud-Plattform</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">Videocloud-Geräte-SDKs</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">Integrationen und CMS-Konnektoren</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">Video Cloud — Allgemeine Informationen</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="Support"/> Kontaktieren Sie Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="Systemstatus"/> Systemstatus</a></span> <br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Nach Hause</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/support/">Allgemeine Informationen</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Bekannte Probleme: Studio, Brightcove Player und APIs</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Nach Hause</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Allgemeine Informationen <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">Brightcove Produktübersicht</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">Brightcove Continuum Überblick</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">Open Source-Projekte</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">MPEG-DASH Video</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">Brightcove Forum-Gruppen und E-Mail-Listen</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">Entwickler <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">Verstehen von CORS</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">Einführung in JSON</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">Grundlagen des JavaScript Debugging-</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">Das Entwurfsmuster des Java</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">Einrichten von cURL</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">Verwenden von JavaScript Promises</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">Erstellen eines JSON Web Token (JWT)</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">Debuggen auf Mobilgeräten</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">Verwendung von MTR (my Traceroute)</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">Verwenden von Wireshark zur Verfolgung des Netzwerkverkehrs</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">Migrieren von Ooyala <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Migrationsdokumente für Ooyala-Kunden</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">Migration auf die Brightcove Analytics API</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">Migration auf Video Cloud: Anzeigen-Sets</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">Migration auf Video Cloud: Aufnahme-Adapter</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">Aufnahme-Adapter: CSV-Manifest-Dateien</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Aufnahme-Adapter: Einnehmen mit Aspera</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">Aufnahme-Adapter: Einnehmen mit FTPS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">Aufnahme-Adapter: Aufnahme mit OIS 2.5</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">Aufnahme-Adapter: Einarbeiten mit der Backlot-API</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">Aufnahme-Adapter: Aufnahme von Remote-Assets über MRSS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">Aufnahme-Adapter: Einnahme von Hosted MRSS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot/ Video Cloud CMS-Anschluss</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">Backlot und Video Cloud: Felder für Video und Playlist</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">Aufnahme-Adapter: Manifest-Dateiformate</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">Aufnahme-Adapter: XML-Manifest-Dateien</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">Aufnahme-Adapter: Unterstützte Ingest-Formate</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">Hinzufügen des Brightcove DNS-Servers zum Testen</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">Authentifizierung für Brightcove API-Anfragen</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">Referenz zum Bericht „Jetzt Trends“</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">Verwenden von Ooyala-Playern für Video Cloud-Inhalte</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">Versorgungsunternehmen <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">Base 64-Codierungstool</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">Datum-Konverter</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">String-Encoder</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">Schulung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">Alle Online-Schulungen</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">Registrieren Sie sich für Schulungen mit Kursleiter</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">Schulung: Einführung in Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">Schulung: Einführung in Video Cloud Analytics</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">Schulung: Videocloud-Grundlagen</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">Video Cloud Studio-Schulungsvideos</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">Schulungskurse der Brightcove University</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">unterstützung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">Bekannte Probleme</a></li>
+                  
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">Brightcove Antworten</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Systemstatus von Brightcove“</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Kontakt mit dem Vertrieb</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menü „Navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Inhalt der Seite</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="in neuem Tab öffnen" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<article class="bcls-article">
+  <h1>Bekannte Probleme: Studio und Brightcove Player</h1>
+  <summary>In diesem Thema werden die bekannten Probleme mit Studio, Brightcove Player und APIs aufgelistet.</summary>
+  <section class="bcls-section">
+    <p><strong>Zu den identifizierten bekannten Problemen gehören:</strong></p>
+    <ul>
+      <li><a href="#studio">Studio</a>
+        <ul>
+          <li><a href="#media">Media-Modul</a></li>
+          <li><a href="#players">Spieler-Modul</a></li>
+          <li><a href="#live">Live-Video</a></li>
+          <li><a href="#analytics">Analytics-Modul</a></li>
+          <li><a href="#audience">Modul Zielgruppe</a></li>
+          <li><a href="#social">Soziales Modul</a></li>
+          <li><a href="#di">Upload-Modul/ Dynamische Aufnahme</a></li>
+        </ul>
+      </li>
+      <li><a href="#player">Brightcove Spieler</a></li>
+      <li><a href="#player_plugins">Brightcove Spieler-Plugins</a></li>
+      <li><a href="#brightcoveLive">Brightcove live</a></li>
+    </ul>
+    <ul>
+      <li><a href="#analytics_api">Analytics-API</a></li>
+      <li><a href="#cms">CMS-API</a></li>
+      <li><a href="#diapi">Dynamische Ingest-API</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="studio">Studio</h2>
+    <dl>
+      <dt>Die Verwendung der Übersetzungsfunktion von Chrome unterbricht einige Stu </dt>
+      <dd>Wenn Sie die Übersetzungsfunktion von Chrome zum Übersetzen von Studio-Modulen verwenden, wird einige Funktionen unterbrochen.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="media">Medienmodul</h2>
+    <dl>
+      <dt>Bilderfassung mit IE 11</dt>
+      <dd>Die Bilderfassung mit IE 11 funktioniert nicht, wenn das Video-Seitenverhältnis 1:1 oder 4:3 beträgt.</dd>
+      <dt>Quelldateiname mit Doppelbyte-Zeichen</dt>
+      <dd>Der Quelldateiname, der Doppelbyte-Zeichen enthält, wird nach dem erneuten Transkodieren im Medienmodul verstümmelt.</dd>
+      <dt>Medienfreigabe</dt>
+      <dd>
+        <p>Brightcove empfiehlt, bei der Freigabe einer großen Anzahl von Videos höchstens jeweils zwei Seiten von Videos freizugeben. Bei der gleichzeitigen Freigabe einer großen Anzahl von Videos kann ein Fehler wegen Zeitüberschreitung auftreten.</p>
+        <p>Das Hinzufügen von Untertiteln zu einem freigegebenen Video, das bereits Untertitel enthält, wird nicht unterstützt.</p>
+        <p>Die gemeinsame Nutzung von Medien schlägt für Videos fehl, die durch Ausschneiden von Live-Streams erstellt wurden.</p>
+      </dd>
+      <dt>Geplante Videos</dt>
+      <dd>Da die Playback-API und der Katalog-Cache-Videos für bis zu 10-15 Minuten dauern, kann ein Player, der ein Video anfordert, das in den nächsten Minuten (bis zu 20) verfügbar sein soll, möglicherweise erst ein abspielbares Video abspielen, wenn der Cache aktualisiert wird.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="players">Players-Modul</h2>
+    <dl>
+      <dt>Preload-Einstellung</dt>
+      <dd>Aufgrund eines Fehlers in Internet Explorer kann die Preload-Einstellung bei Verwendung von IE ignoriert werden.</dd>
+      <dt>Einstellung „Zugreifen auf Datenquellen über Domänen</dt>
+      <dd>Wenn diese <a href="https://www.windows-security.org/0d1b99f52cba398c3ce4d1cdd80d7441/access-data-sources-across-domains">Internet Explorer-Richtlinieneinstellung</a> für einen Brightcove-Spieler mit Domäne aktiviert ist, wird der Player nicht in Internet Explorer 11 geladen. Dies scheint ein Fehler im IE zu sein, und es gibt keine bekannte Problemumgehung. Schalte diese Einstellung aus, wenn du möchtest, dass Spieler mit Domäne in IE 11 arbeiten sollen.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="live">Live-Video</h2>
+    <dt>Brightcove Player zählt Video-Ansichten für abgeschlossene Live-Veranstaltungen.</dt>
+    <dd>Der Brightcove Player zählt bei jedem Laden eines Remote-Videos eine Video-Ansicht, auch wenn es sich dabei um eine beendete Live-Veranstaltung mit einer leeren oder nicht mehr abrufbaren HLS-Wiedergabeliste handelt. <strong>Lösung</strong>: Deaktivieren oder löschen Sie das Video, oder löschen Sie den Zeitplan des Videos.</dd>
+  </section>
+  <section class="bcls-section">&nbsp;</section>
+  <section class="bcls-section">
+    <h2 id="analytics">Analytics</h2>
+    <dl>
+      <dt><strong>Der Gesamtbandbreitenbericht ist nur für ältere Aufnahmevideos verfügbar</strong></dt>
+      <dd>Das Datenfeld Gesamtbandbreite ist derzeit nicht für die dynamische Übermittlung verfügbar, daher ist diese Option für benutzerdefinierte Berichte nicht verfügbar.</dd>
+      <dt><strong>Analysedaten sind aufgrund von Werbeblockern möglicherweise nicht korrekt</strong></dt>
+      <dd>Analysedaten (die sowohl über die Benutzeroberfläche als auch über die API erhalten werden) können ungenau sein, da Werbeblocker wie UBlock die Übermittlung von Analysedaten auf Client-Computern blockieren.</dd>
+      <dt><strong>Benutzerdefinierte Berichte, die für einige Videos 0 bytes_bereitgestellt anzeigen</strong></dt>
+      <dd>Videos, die mit einem Aufgaufsichtsprofil für Dynamic Delivery aufgenommen wurden, werden in benutzerdefinierten Berichten 0 bytes_übermittelt angezeigt.</dd>
+      <dt><strong>Benutzerdefinierte Berichte mit mehreren Filtern</strong></dt>
+      <dd>Wenn Sie mehrere Filter nutzen, wird ein UND-Vorgang verwendet. Falls Sie beispielsweise die beiden Filter <strong>Video Tag</strong> und <strong>Player</strong> hinzufügen, werden nur Videos zurückgegeben, die die angegebenen Tags aufweisen <strong>und</strong> im festgelegten Player wiedergegeben werden.</dd>
+      <dt><strong>Benutzerdefinierte Berichte mit der Funktion Nach Video-Tag filtern</strong></dt>
+      <dd>Beim Erstellen eines benutzerdefinierten Berichts ist die Funktion „Filter by Video Tag“ eingeschränkt. Nur die ersten 2000 Videos in Ihrer Bibliothek mit diesem bestimmten Tag werden berücksichtigt. Ist die Anzahl von Videos mit einem bestimmten Tag höher, empfehlen wir das Erstellen eines ungefilterten Berichts, der die Tags enthält, und das lokale Filtern mit der Tabellenkalkulationssoftware.</dd>
+      <dt><strong>„Other/Third Party“</strong> erscheint im Leistungsbericht</dt>
+      <dd>Stammt ein in einem Video Cloud-Player abgespieltes Video nicht aus Ihrer Video Cloud-Bibliothek (z. B. ein Remote-Video), wird <strong>Other/Third Party</strong> ohne zugewiesene Video-ID angezeigt.</dd>
+      <dt>Analytics berücksichtigt keine aktualisierten Video-Namen</dt>
+      <dd>Analytics erfährt den Titel eines Videos nur, wenn der Titel vom Player im Rahmen des Wiedergabeereignisses an Analytics gesendet wird. Wird ein Video-Titel geändert, erfährt Analytics erst von dem neuen Video-Titel, wenn das Video abgespielt wird. Es kann also passieren, dass ein Video-Name aktualisiert wurde, aber keine Wiedergaben unter dem aktualisierten Namen aufgezeichnet werden, sodass in den Analytics-Berichten weiterhin der alte Video-Name auftaucht. Von diesem Problem sind oft Daten für Zeiträume vor März 2013 betroffen. Sie zeigen Metadaten, die nur aus einer Nummer bestehen. Ein Video-Titel wird beispielsweise als 1230123012 angezeigt. Das Problem wird verursacht, weil die Daten aus diesem Zeitraum im alten Analytics-System erfasst wurden.</dd>
+      <dt>Video- und Player-Namen enthalten in der Analytics-UI die Zeichen ???????</dt>
+      <dd>Die Metadaten (Video- und Player-Namen) für den Monat Oktober 2013 werden unter Umständen als eine Reihe von Fragezeichen (?????) dargestellt. Dieses Problem betrifft Publisher, deren Metadaten Doppelbyte-Zeichen enthalten und deren Videos im Oktober 2013 abgespielt wurden. Dieses Problem hat damit zu tun, wie wir zum damaligen Zeitpunkt die Metadaten für die Darstellung in der Analytics-UI erfasst haben. Seit November 2013 ist das Analytics-System mit zusätzlichen Sicherheitsvorkehrungen versehen, die verhindern, dass mit den Veranstaltungsdaten gesendete Metadaten beschädigt werden.</dd>
+      <dt>Zeitzone für die Berichterstellung</dt>
+      <dd>Die Zeitzone für die Berichterstellung wird für Berichte zur Berechnung von Tagesgrenzen verwendet. Wird die Zeitzone für die Berichterstellung geändert, gilt die Änderung nicht rückwirkend. Wenn Sie diese Einstellung ändern, bemerken Sie an Tagesgrenzen, an denen die Änderung vorgenommen wurde, möglicherweise ein extrem niedriges oder hohes Datenaufkommen. Eine Aktualisierung dieser Einstellung tritt möglicherweise nicht sofort in Kraft, und Analytics-Daten beziehen sich u. U. weiterhin solange auf die alte Einstellung, bis die Änderungen vom System verarbeitet wurden.</dd>
+      <dt>Bindungsdaten werden auf täglicher Ebene gespeichert</dt>
+      <dd>Bindungsdaten werden auf täglicher Ebene unter Verwendung der UTC-Zeit gespeichert. Die Tabelle „Audience at x%“ im Bindungsbericht kann darum manchmal Daten für zwei volle Tage enthalten.</dd>
+      <dt>Internet Explorer-Support</dt>
+      <dd>Das Analytics-Modul erfordert Internet Explorer 11 oder höher.</dd>
+      <dt>Hohe Anzahl von „anderen“ Ergebnissen für Gerätehersteller</dt>
+      <dd>In einigen Fällen sehen Sie möglicherweise eine hohe Anzahl von „anderen“ Ergebnissen für den Gerätehersteller. Dies geschieht, wenn der Datensammelpunkt die mit Analysedaten an ihn <code translate="No">user_agent</code> gelieferten Daten nicht erkennt. Die häufigste Ursache, die wir dafür identifiziert haben, ist eine benutzerdefinierte user_agent-Zeichenfolge, die von Instagram erstellt wurde, aber es gibt wahrscheinlich andere.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audience">Zielgruppe</h2>
+    <dl>
+      <dt>Die Zielgruppenaktivität zeigt Prozent beobachtet:0 und beobachtte:0</dt>
+      <dd>Manchmal werden Interaktivitätsereignisse ausgelöst, ohne dass ein Video abgespielt wird oder bevor ein Video seinen ersten Beacon gesendet hat. Dies kann dazu führen, dass Ansichtsereignisse aufgezeichnet werden, die Interaktivität, aber keine Videoaktivität aufweisen (0% angesehen, 0 Sekunden angesehen).</dd>
+      <dt>Internet Explorer-Support</dt>
+      <dd>Lead-Formulare der Zielgruppe erfordern Internet Explorer 11 oder neuer.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="social">Soziale Netzwerke</h2>
+    <dl>
+      <dt>Das Ghostery-Browser-Plugin kann das Social-Modul stören</dt>
+      <dd>
+        <p>Das Ghostery-Browser-Plugin kann das Social-Modul stören und verhindern, dass es ordnungsgemäß geladen wird.</p>
+        <p><strong>Lösung: </strong> Füge Studio zur Whitelist für Ghostery hinzu.</p>
+      </dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="di">Dynamische Aufnahme</h2>
+    <dl>
+      <dt>Uploads über das Upload-Modul schlagen fehl, wenn die Uhr auf dem Gerät nicht mit der tatsächlichen Uhrzeit übereinstimmt</dt>
+      <dd>Uploads sind für eine bestimmte Zeit autorisiert. Wenn Ihre Uhrzeit um mehr als 15 Minuten von der tatsächlichen Zeit abweicht, erhalten Sie beim Hochladen Fehler.</dd>
+      <dt>Beim erneuten Transcodieren mittels dynamischer Aufnahme wird das Video-Aktivierungsdatum aktualisiert.</dt>
+      <dd>Das Video-Aktivierungsdatum mittels dynamischer Aufnahme wird beim erneuten Transcodieren auf das aktuelle Datum aktualisiert. Bei Verwendung intelligenter Wiedergabelisten, die nach dem Aktivierungsdatum sortiert sind, wird hierdurch die Reihenfolge der Videos in der Wiedergabeliste beeinflusst.</dd>
+      <dt>Die Namen der Dateien</dt>
+      <dd>Die Namen von Videodateien (einschließlich der Erweiterung) dürfen 120 Single-Byte-Zeichen (60 Doppelbyte-Zeichen) nicht überschreiten. Wenn dies der Fall ist, wird das Video erfolgreich aufgenommen, aber Sie können es später nicht erneut transkodieren.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="player">Brightcove Player</h2>
+    <p>Schlagen Sie in den <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html">Brightcove Player-Versionshinweisen</a> nach, ob das Problem in einer neueren Version behoben wurde.</p>
+    <dl>
+      <dt>Elemente mit <code translate="No">id</code> Set auf <code translate="No">default</code></dt>
+      <dd>Es ist bekannt, dass sich der Brightcove Player schlecht verhält, wenn sich <code translate="No">id="default"</code> auf der Seite ein Element mit befindet. Der Blogbeitrag <a href="https://2ality.com/2012/08/ids-are-global.html">DOM: Element-IDs sind globale Variablen</a> , die erklären, warum dies ein Problem ist.</dd>
+      <dt>Anzeigen auf Safari und / oder iOS blockiert</dt>
+      <dd>
+        Von Apple an den Ursprungsrichtlinien für Safari und iOS vorgenommene Änderungen können dazu führen, dass Anzeigen nicht geschaltet werden.
+        <p><strong>Lösung:</strong></p>
+        <p>Wir haben dieses Problem für SSAI behoben, indem wir zusätzliche CORs-Header hinzugefügt haben. Wenn Sie clientseitige Anzeigen verwenden, wird das Problem dadurch nicht behoben, da die CORs-Header von Ihrem Server oder Hosting-Service gesendet werden müssen. Die Header, die wir hinzugefügt haben, sind:</p>
+        <pre><code translate="No">access-control-allow-headers: Server,Range,Content-Length,Content-Range
+          access-control-allow-headers: X-Requested-With,Origin,Range,Accept-Encoding,Referer
+          access-control-allow-methods: GET,HEAD,OPTIONS
+          access-control-allow-origin: *
+          </code></pre>
+      </dd>
+      <dt>Konsolen-Warnungen</dt>
+      <p>Brightcove Player generiert möglicherweise <strong>Warnungen</strong> , die in der Browserkonsole angezeigt werden. Die Warnungen sind im Gegensatz zu Fehlermeldungen harmlos und beeinträchtigen die Wiedergabe nicht. Ein Beispiel für eine Warnung wird hier angezeigt:</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="Konsolen-Warnung" src="/assets/images/general/console-warning.png"/></figure>
+      <dt>Videos ohne Poster- oder Thumbnail-Bilder</dt>
+      <dd>Videos ohne Thumbnail/Posterbilder können dazu führen, dass beim Laden ein Fehler im Player angezeigt wird. Dies wirkt sich auf mobile SDK-Spieler auf eine Weise aus, die den Player zum Absturz bringen könnte.</dd>
+      <dt>Internet Explorer setzt seine Wiedergaberate immer auf 1,0 zurück, wenn die Wiedergabe angehalten wird.</dt>
+      <dd>Dies wird in Safari 14 (Big Sur-Version) kein Problem mehr sein.</dd>
+      <dt>IE11-Bilder für nur Audioinhalte, die nicht angezeigt werden</dt>
+      <dd>Wenn nur Audioinhalte in IE11 wiedergegeben werden, wird das Videostallbild nicht angezeigt, es wird nur ein schwarzer Bildschirm angezeigt. Das Bild kann mit dem folgenden Code beibehalten werden:
+      <pre>
+  <code class="language-css" translate="No">.vjs-has-started .vjs-poster {
+  display: block;
+  }
+  </code>
+  </pre>
+      </dd>
+      <dt>Wiedergabeliste für den automatischen Fortschritt auf Safari</dt>
+      <dd>Für Safari, wenn die Wiedergabeliste sichtbar ist und der Player die Vorladeeinstellung auf eingestellt hat <code>keiner</code> Die automatische Wiedergabe des nächsten Videos schlägt stillschweigend fehl.</dd>
+      <dt>Kontext-Menü</dt>
+      <dd>Wenn Sie mit der rechten Maustaste auf ein Video nahe dem rechten oder unteren Rand eines Players klicken, wird das Kontextmenü des Players außerhalb des Bildschirms angezeigt.</dd>
+      <dt>Verwenden von mehreren Spielern unterschiedlicher Größe mit derselben player_id auf einer Seite</dt>
+      <dd>
+        <p>
+          Wenn mehrere Spieler die gleiche ID auf einer Seite haben und innerhalb des <code translate="No">&lt;video&gt;</code> Tags <code translate="No">width</code> und <code translate="No">height</code> Attribute eine unterschiedliche Größe angeben, wird das Player-CSS des letzten Spielers angewendet an alle Spieler.
+        </p>
+        <p><strong>Workarounds</strong></p>
+        <ul>
+          <li>Verwenden Sie Spieler mit anderen Spieler-IDs, wenn Sie möchten, dass sie unterschiedliche Größen haben oder styling/li &gt;</li>
+          <li>Definieren Sie eine Klasse für die Spieler, die die Größe des Spielers mithilfe von CSS bereitstellen, und fügen Sie die Klassen den Video-Tags für die verschiedenen Player hinzu</li>
+        </ul>
+      </dd>
+      <dt>FastClick.js verursacht eine falsche Verarbeitung von Ereignissen.</dt>
+      <dd>Bei der Verwendung von FastClick.js results erfolgt in unserer benutzerdefinierten Steuerleiste eine falsche Verarbeitung von Ereignissen. Möglicherweise kann aus diesem Grund unsere Steuerleiste nicht auf Mobilgeräten verwendet werden.</dd>
+      <dt>In Chrome und Firefox werden Videos grau dargestellt.</dt>
+      <dd>
+        <p>Bei Verwendung von Chrome und Firefox werden Videos im Brightcove Player möglicherweise in grau abgebildet. Dieses Problem wird möglicherweise durch Hardwarebeschleunigung und/oder NVIDIA-Treibereinstellungen verursacht.</p>
+        <p><strong>Lösung: </strong> Öffnen Sie die NVIDIA-Systemsteuerung. Wählen Sie unter <strong>Video</strong> die Option <strong>Adjust video color settings</strong>. Wählen Sie unter <strong>How do you make color adjustments</strong> die Option <strong>With the NVIDIA settings</strong>. Stellen Sie unter <strong>Advanced</strong> sicher, dass <strong>Dynamic Range</strong> auf <strong>Full (0-255)</strong> und nicht auf <strong>Limited (16-235)</strong> eingestellt ist. <strong>Dynamic contrast enhancement</strong> muss deaktiviert sein. Dieses Problem wurde bereits im <a href="https://productforums.google.com/forum/#!topic/chrome/wsDhGzP73bI;context-place=forum/chrome">Google Chrome Hilfeforum</a> gemeldet.</p>
+      </dd>
+      <dt>Verwendung von Emulatoren</dt>
+      <dd>
+        <p>Bedenken Sie bei Verwendung eines Emulators wie Chrome Device Mode zum Testen der Videowiedergabe, dass Emulatoren die Leistung eines tatsächlichen Geräts nicht exakt darstellen. Emulatoren können zwar für erste Tests während der Entwicklung verwendet werden, genaue Ergebnisse erhalten Sie jedoch nur mit echten Geräten.</p>
+        <p>Beim Testen der Wiedergabe mit Chrome Device Mode erscheint unter Umständen diese Meldung: „The use of Chrome in device mode simply renders the viewport and user agent string of that device in Chrome, which is not an accurate representation of how the actual device will perform.“</p>
+      </dd>
+      <dt>Verwenden von <code translate="No">data-setup </code></dt>
+      <dd>Verwenden Sie <code translate="No">data-setup </code> nicht mit dem Brightcove Player. In der API-Dokumentation wird möglicherweise <code translate="No">data-setup </code> verwendet, da die Dokumentation direkt aus dem Video.js-Player-Quellcode generiert wurde. Sie können dieses Attribut mit dem <code translate="No">video </code>-Tag mit reinem Video.js verwenden. Das Attribut sendet Konfigurationsinformationen an den Player, der Brightcove Player verwendet jedoch eine andere Methode für diese Aufgabe, weshalb <code translate="No">data-setup </code> nicht zuverlässig ist.</dd>
+      <dt>Protokollbewusste Quellauswahl und DASH</dt>
+      <dd>Bei Verwendung von DASH-Inhalt ist die protokollbewusste Quellauswahl nicht verfügbar. Sie ist nur für HLS- und MP4-Inhalt verfügbar</dd>
+      <dt>Konsolenfehler bei Verwendung der iframe-Player-Implementierung in Safari</dt>
+      <dd>Bei Verwendung der iframe-Implementierung des Brightcove Players in Safari erscheint an der Konsole die folgende Fehlermeldung: <strong>Blocked a frame with origin "http://players.brightcove.net" from accessing a frame with origin "#DOMAIN NAME#". Protocols, domains, and ports must match.</strong> Die Wiedergabe wird durch diesen Fehler nicht beeinträchtigt.</dd>
+      <dt>Im Titelmenü von Safari wird „Unknown“ angezeigt.</dt>
+      <dd>Hierbei handelt es sich um eine Einschränkung von Safari/Apple. Neuere Versionen des Brightcove Players verwenden standardmäßig in Safari integrierte systemeigene Titelfähigkeiten. Nähere Informationen hierzu bei Apple: <a href="https://developer.apple.com/library/ios/qa/qa1801/_index.html">https://developer.apple.com/library/ios/qa/qa1801/_index.html</a></dd>
+      <dt>Vollbild in Nicht-Flash-Umgebungen</dt>
+      <dd>
+        <p>
+          In Umgebungen, in denen Flash oder Flash-basiertes HLS für den Player deaktiviert ist und wenn die Player-Größe ausdrücklich mit einem <code translate="No">style </code>-Attribut im <code translate="No">video </code>-Tag bestimmt wird, ist der Vollbildmodus in einigen Browsern eventuell nicht verfügbar.
+        </p>
+      <p>Lösung: Entfernen Sie das <code translate="No">style </code>-Attribut aus dem <code translate="No">video </code>-Tag, und erstellen Sie auf einem Seiten-Stylesheet wie folgt eine Regel:</p>
+      <pre>
+  <code class="language-css" translate="No">.video-js{
+  width:640px;
+  height:360px;
+  }
+  </code>
+  </pre>
+      </dd>
+      <dt>Soziale Netzwerke</dt>
+      <dd>Auf Desktops ist die Schaltfläche zum Teilen in sozialen Netzwerken während des Abspielens von Anzeigen nicht sichtbar.</dd>
+      <dt>HTTPS</dt>
+      <dd>
+        <p>In den meisten Desktopbrowsern wird vom Brightcove Player nur dann HLS auf HTTPS-Websites abgespielt, wenn das Manifest und die Videosegmente nicht über HTTPS-Verbindungen bereitgestellt werden. Ursache hierfür sind kürzliche Änderungen in verschiedenen Browsern, die Nicht-SSL-Inhalt deutlich einschränken. Betroffen sind Benutzer von Chrome, Firefox und Internet Explorer auf Desktopcomputern. Safari-Benutzer und mobile Browser sowie die Wiedergabe von MP4-Wiedergabeversionen sind nicht betroffen.</p>
+        <p>Wir arbeiten derzeit an einer Lösung für diese Beschränkung für Videos, die von Video Cloud verwaltet werden. Wenn Sie ein eigenes CDN unterhalten und selbst transcodieren (Remote-Videos), müssen Sie Ihr CDN zur Unterstützung der HTTPS-Bereitstellung von Manifest- und Video-Content konfigurieren.</p>
+      </dd>
+      <dt>Vollbildansicht</dt>
+      <dd>
+        <p>In neueren Browsern mit Unterstützung der Vollbild-API müssen In-Page-CSS-Regeln angewendet werden, um sicherzustellen, dass der Player beim Wechsel zu Vollbild auf 100 % skaliert wird. Andernfalls wird der Player im Vollbildmodus in seiner ursprünglichen Größe abgebildet. Nähere Einzelheiten finden Sie unter <a href="https://player.support.brightcove.com/styling/sizing-player.html#fullscreen">Fullscreen display</a> im Dokument <strong>Size the Player</strong>.</p>
+        <p>Bei Verwendung von IE10 und früheren Versionen ohne Vollbild-API-Unterstützung wird ein neues Fenster geöffnet, und der Player wird darin nicht in der Fenstergröße abgebildet. Dies liegt daran, dass keine Stile angewendet wurden, um die Player-Größe anzupassen. Da im Fenster kein Bildlauf möglich ist, wird unter Umständen nur ein Teil der Website ohne Player angezeigt.</p>
+      </dd>
+      <dt>Mehrere Videos werden auf einer einzigen Seite mit HapYak-Kapiteln veröffentlicht</dt>
+      <dd>
+        <p>Wenn mehrere Videos auf einer einzelnen Seite mit HapYak-Kapiteln veröffentlicht werden, könnte ein falsches Kapitel angezeigt werden.</p>
+        <p><strong>Lösung:</strong></p>
+        <p>Benutzen Sie dieses Skript: <a href="https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js">https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js</a>. Die Flash-Wiedergabe (IE11/Win7) kann dieses Problem jedoch nicht vermeiden, daher muss der HTML5-Fallback im Falle von IE11/Win7 implementiert werden.</p>
+      </dd>
+      <dt>Akamai HD und HDS</dt>
+      <dd>Der Brightcove Player unterstützt nicht die Video-Bereitstellung mit Akamai HD- oder HDS-Bereitstellungsmethoden.</dd>
+      <dt>Error: <strong>d.off is not a function</strong></dt>
+      <dd>
+        <p>Dieser bekannte Fehler kann in einem Player beim Wechsel zwischen verschiedenen Formaten, beispielsweise MP4 und HLS, auftreten. Bis zur Behebung dieses Problems können Sie versuchen, denselben Code, der das Problem verursacht noch einmal zu verwenden. Mit folgendem Code wurde beispielsweise ein Fehler in einer App behoben:</p>
+        <pre>
+  <code class="language-javascript" translate="No">try {
+  myPlayer.catalog.load(video);
+  } catch (e) {
+  myPlayer.catalog.load(video);
+  }
+  myPlayer.play();
+  </code>
+  </pre>
+      </dd>
+      <dt>HLS-Video-Dauer</dt>
+      <dd>Es ist möglich, dass die Dauer in der Steuerleiste sich von der ursprünglichen Dauer unterscheidet. Nachdem alle HLS-Segment geladen wurden, wird u. U. die Dauer aktualisiert.</dd>
+      <dt>RequireJS</dt>
+      <dd>Bei Verwendung von RequireJS müssen Sie u. U. den Player mit der <code translate="No">bc() </code>-Methode instantiieren. Ob die Methode zu verwenden ist, hängt davon ab, wie/wann die Player-Objekte geladen werden. Weitere Informationen finden Sie unter <a href="https://player.support.brightcove.com/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a>.</dd>
+      <dt>referrer_url vs. description_url</dt>
+      <dd>Der <code translate="No">referrer_url </code> Wert kann zwischen iOS- und Android-Geräten unterschiedliche Werte haben. Aus diesem Grund wird die Verwendung des <code translate="No">description_url </code>-Werts empfohlen. Dieser Wert ist auf allen Plattformen und Geräten konsistent.</dd>
+      <dt>Schleifenattribut auf Safari</dt>
+      <dd>Das <strong>Loop-Attribut</strong> funktioniert auf Safari nicht ordnungsgemäß. Sie können die im&nbsp;<a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-creating-video-loop.html">Brightcove Player Sample detailliert beschrieben verwenden: Erstellen eines Video Loop-Dokuments</a> </dd>
+
+      <dt>Bildunterschriften auf Safari</dt>
+      <dd>Da Safari die nativen Funktionen zum Styling von Untertiteln verwendet, ist die Menüoption <strong>Untertiteleinstellungen</strong> im <strong>CC-Menü</strong> in Safari-Browsern (sowohl iOS als auch macOS) nicht verfügbar.</dd>
+
+      <dt>Verwenden einer HTML-Element-ID namens global</dt>
+      <dd>Sie sollten Ihren erweiterten (In-Page-Einbetten) Player-Implementierungscode nicht in einem übergeordneten <code translate="No">&lt;div&gt; </code> Tag mit einem <code translate="No">id </code> zugewiesenen Wert verschachteln <code translate="No">global </code>. Dies führt zu Problemen mit Brightcove Player.</dd>
+      <dt>Spieler Version 5 Icon-Problem</dt>
+      <dd>Brightcove Player Version 5 verwendet das gleiche Icon für Kapitel und Untertitel. Da sich Version 5 im Wartungsmodus befindet und dies ein kosmetisches Problem darstellt, ist es zweifelhaft, dass das Problem behoben wird.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="player_plugins">Brightcove Spieler-Plugins</h2>
+    <p>Sie werden mit dem jeweiligen Plugin-Dokument verknüpft, sehen Sie sich daher die bekannten Probleme für ein Plugin an. Da sich Version 5 im Wartungsmodus befindet und dies ein kosmetisches Problem darstellt, wird es nicht behoben.</p>
+    <ul>
+      <li><a href="https://player.support.brightcove.com/plugins/advertising-freewheel-plugin.html#Known_issues">Werbung mit dem FreeWheel Plugin</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html#issues">Werbung mit dem IMA3-Plugin</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/display-error-messages-plugin.html#Known_issues">Plugin Fehlermeldungen anzeigen</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/quality-selection-plugin.html#Known_issues">Plugin zur Qualitätsauswahl</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="android">Android</h2>
+    <ul>
+      <li>
+        Die Fortschrittssteuerung und der Lautstärkeregler von Brightcove Player können nicht durch die nativen Gesten von TalkBack auf Android angepasst werden. Dies ist auf Plattformbeschränkungen zurückzuführen. Stattdessen muss ein Benutzer direkt mit dem Element interagieren. Unter Android ermöglicht ein Doppeltippen mit zwei Fingern dem Benutzer, den Fortschritt oder die Lautstärke an die Position des Doppeltipps mit zwei Fingern anzupassen.
+      </li>
+      <li>Auf manchen Geräten ist die Fortschrittsleiste bei HLS-Videos eventuell nicht synchron, da HLS nicht gut mit Android funktioniert. Außerdem kann als Gesamtlänge eines Videos fälschlicherweise 0:01 angegeben werden.</li>
+      <li>Im <em>systemeigenen</em> Browser von Handys und Tablets mit einer beliebigen Android-Version treten verschiedene Eingabeprobleme auf. Talkback liefert kein Audio und Vibrationsfeedback für keines der Player-Steuerelemente. (Dieses Problem tritt <em>nicht</em> beim Chrome-Add-On-Browser auf Android-Geräten auf, sondern nur beim systemeigenen Browser.)</li>
+      <li>Auf Geräten werden Tippereignisse zu Fehlermeldungen nicht auf das übergeordnete Video-Element angewendet. Sie können also eine angezeigte Fehlermeldung nicht schließen.</li>
+      <li>Auf Android-Geräten kann das Menü beim Navigieren in den Spielermenüs in der Steuerungsleiste, wie Beschriftungen oder Qualitätsauswahl, nach einem langen Druck auf einen Menüpunkt im offenen Zustand „hängen“ bleiben. Dies liegt daran, dass Chrome die <code translate="No">:hover </code> Pseudoklasse hinzufügt. Ein weiterer langer Druck an anderer Stelle auf dem Player schließt normalerweise das Menü.</li>
+    </ul>
+    <p class="BCL-aside">Erfahren Sie, wie Sie Android-Apps erstellen, die das <a href="https://sdks.support.brightcove.com/android/">Brightcove Player-SDK für Android</a> nutzen.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="ios">iOS</h2>
+    <ul>
+      <li>
+        Die Fortschrittssteuerung und der Lautstärkeregler von Brightcove Player können nicht durch die nativen Gesten von VoiceOver unter iOS angepasst werden. Dies ist auf Plattformbeschränkungen zurückzuführen. Stattdessen muss ein Benutzer direkt mit dem Element interagieren. Unter iOS muss der Benutzer zweimal tippen, um den Fortschrittsbalken oder den Lautstärkeregler auszuwählen, und ein Doppeltippen und Halten ermöglicht es dem Benutzer, die Zeit oder Lautstärke anzupassen.
+      </li>
+      <li>Safari auf iOS wird nie vorgeladen. Einzelheiten finden Sie im <a href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html">Audio- und Videoanleitung für Safari HTML5</a>.</li>
+      <li>Beim Wechsel zu einer anderen App tritt in iOS ein Spielerfehler auf. Wenn ein Video in Brightcove Player auf einem iOS-Gerät in Safari/Chrome abgespielt wird, wird der Player nach dem Wechsel zu einer anderen App einen Fehler machen und nach einer Minute oder länger wieder zu Safari/Chrome wechseln.</li>
+    </ul>
+    <h3>iPhone</h3>
+    <ul>
+      <li>Das Teilen in sozialen Netzwerken ist mit iPhones nicht möglich. Da iOS-Handys automatisch zum Vollbild wechseln, kann auf einem iPhone ein Video nicht geteilt werden.</li>
+      <li>Auf iPhones werden Tippereignisse zu Fehlermeldungen nicht auf das übergeordnete Video-Element angewendet. Sie können also eine angezeigte Fehlermeldung nicht schließen.</li>
+    </ul>
+    <p class="BCL-aside">Erfahren Sie, wie Sie iOS-Apps erstellen, die das <a href="https://sdks.support.brightcove.com/ios/">Brightcove Player-SDK für iOS</a> nutzen.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="windows8">Windows 8</h2>
+    <ul>
+      <li>Begleitanzeigen werden nicht unterstützt.</li>
+      <li>Auf Windows 8-Tablets funktioniert die Suche nicht bei der Standard-HTML/MP4-Wiedergabe. Bei HLS-Technologie ist die Funktionsweise korrekt.</li>
+      <li>Auf Windows 8-Tablets funktionieren Anzeigen, bei Begleitanzeigen stürzt der Browser jedoch ab.</li>
+      <li>Auf Windows 8-Tablets werden HLS, Flash, Live und Embed-Typen unterstützt.</li>
+      <li>Windows 8-Handys unterstützen MP4, aber kein Flash oder HLS.</li>
+      <li>Wenn Sie auf einem Windows 8-Handy die Wiedergabe starten, erfolgt diese immer als Vollbild – egal, ob der Embed-Typ iframe oder inline ist. Dies bedeutet, dass nach dem Start der Wiedergabe keine Overlay-Anzeigen eingeblendet werden.</li>
+      <li>Untertitel sind nicht aktivierbar.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="chrome">Chrome</h2>
+    <ul>
+      <li><strong>Problem mit Wiedergaben mit niedriger Audiobitrate</strong>
+        <p>Aufgrund eines MSE-Fehlers bei der hier dokumentierten Chrome-Browser-Implementierung:</p>
+        <p><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">https://bugs.chromium.org/p/chromium/issues/detail?id=534301</a></p>
+        <p>Die Wiedergabe auf diesem Browser für Version 5 und höher des BC-Players schlägt fehl (zeigt MEDIA_ERR_DECODE), wenn sich das Audioprofil der versuchten Wiedergabe von AAC-LC unterscheidet.</p>
+        <p>Um zu vermeiden, dass dies bei neu aufgenommenem Content passiert, müssen folgende Voraussetzungen erfüllt sein:</p>
+        <ul>
+          <li>Die Audiobitrate beträgt mindestens 48 KBit/s.</li>
+          <li>Das DI-Profil enthält die folgende Einstellung: <code translate="No">"max_aac_profile": "aac-lc" </code></li>
+        </ul>
+        <p>Mit den folgenden Optionen vermeiden Sie, dass dies bei vorhandenem Content geschieht:</p>
+        <ul>
+          <li>Erneutes Transcodieren nach den Empfehlungen oben</li>
+        </ul>
+      </li>
+      <li>Ein angefordertes HTMl5-Video wird nicht abgerufen, und das Video wird nicht geladen. Ein <a href="https://code.google.com/p/chromium/issues/detail?id=234779">Google-Dokument</a> enthält Informationen zu diesem Problem.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="firefox">Firefox</h2>
+    <ul>
+      <li>Firefox-Browser für Android: Wird nicht offiziell unterstützt, Fehler werden jedoch sofern möglich behoben.</li>
+      <li>Wir wurden darüber informiert, dass im Brightcove Player unter Firefox Version 42 möglicherweise Wiedergabeprobleme auftreten. Das Problem scheint mit der Firefox-Einstellung von <strong>Use Hardware Acceleration</strong> zu tun zu haben. Bei aktivierter Option wird im Video-Player nur Audio wiedergegeben, und es wird lediglich ein Standbild angezeigt. Lösen Sie dieses Problem, indem Sie diese Option wie folgt deaktivieren: <strong>Options -&gt; Advanced -&gt; General -&gt; Use Hardware Acceleration When Available (muss deaktiviert werden)</strong></li>
+      <li>Der Brightcove Player kann ein Timeout bei Firefox haben, wenn das erste Bild Ihres Videoinhalts einen Zeitstempel für die Startpräsentation (Punkte) von mehr als 0 hat. Die derzeit empfohlene Lösung besteht darin, Ihre Inhalte neu zu codieren. Beachten Sie, dass Re-Encode NICHT Re-Transcodierung bedeutet. Der ursprüngliche Master muss erneut hochgeladen werden. Wenn das Problem dadurch nicht behoben wird, wenden Sie sich an den <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Kundendienst, um weitere Unterstützung</a> zu erhalten.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="internetexplorer">Internet Explorer</h2>
+    <ul>
+      <li>Untertitel, die so eingestellt sind, dass sie automatisch im Video angezeigt werden (Überprüfung der Einstellung „Standard“ für eine Beschriftung im Medienmodul), funktionieren nicht mit IE11</li>
+      <li>Videos mit Audio über 48 kHz schlagen während der Wiedergabe auf Edge und IE11 unter Windows 8 und Windows 10 fehl. Dies ist eine Microsoft-Einschränkung. Weitere Informationen finden Sie in <a href=" https://msdn.microsoft.com/en-us/library/windows/desktop/dd742784(v=vs.85).aspx#FORMAT_CONSTRAINTS">diesem Microsoft-Dokument</a> .</li>
+      <li>IMA3 Flash-Anzeigen funktionieren besser in IE. Google IMA3 unterstützt keine Flash- und HTML-Anzeigen in IE. Beim Testen fiel uns jedoch auf, dass das Flash SDK aktuell viel robuster ist.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="safari">Safari</h2>
+    <ul>
+      <li>Keine bekannten Probleme</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="ima3">IMA3</h2>
+    <ul>
+      <li>Bei Verwendung überspringbarer Google IMA3-Anzeigen, besitzen die Überspringschaltflächen keinen Tabindex, die Navigation mittels Tastatur zu diesen Schaltflächen ist also nicht möglich. Zuschauer, die nur mit der Tastatur navigieren, können die Anzeige also nicht überspringen.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="brightcoveLive">Brightcove Live</h2>
+    <ul>
+      <li>Wenn der auf festgelegt <code translate="No">h264_profile </code> ist <code translate="No">baseline </code> oder der nicht zur Job-Anforderung hinzugefügt <code translate="No">h264_profile </code> wird, verursacht dies unter Windows 10 ein Problem, das Firefox v57 verwendet.</li>
+      <li>Wenn das Ende eines Live-Streams erreicht ist, zeigt der Spieler möglicherweise einen <code translate="No">PLAYER_ERR_TIMEOUT </code> Fehler an.</li>
+    </ul>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Inhalt der Seite</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Seite zuletzt aktualisiert am 03. November 2020
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support-Service</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">Systemstatus</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Kontakt mit dem Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">DOKUMENTATION</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Schulungen</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Online-Kurse</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">Für einen Kurs anmelden</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Brightcove Universität</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Kontaktiere uns</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. Alle Rechte vorbehalten.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Allgemeine Geschäftsbedingungen</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">Fragen? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
