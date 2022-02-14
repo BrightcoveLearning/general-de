@@ -1,91 +1,91 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 
 <head>
   <meta charset="UTF-8">
-  <title>David Meeting Anzeige Info Notizen</title>
+  <title>David Meeting Anzeigeninfo Notizen</title>
 </head>
 
 <body>
-  <h1>***Anzeigeninformationen zu David Meeting***</h1>
-  <br/>
-  <h1>Grundwortschatz</h1>
-  <h3>Arten von Werbeanzeigen</h3>
+  <h1>***Hinweise zu David Meeting-Anzeigen***</h1>
+  <br />
+  <h1>Grundvokabular</h1>
+  <h3>Anzeigentypen</h3>
   <ul>
-    <li>Lineare Anzeigen: Anzeigen, die während der Wiedergabe auftreten, nehmen Zeit in der Timeline in Anspruch (Beispiel ist ein Preroll)</li>
-    <li>Nichtlineare Werbung: Unterbricht die Wiedergabe nicht; Overlay- und Begleitanzeigen sind Beispiele</li>
+    <li>Lineare Anzeigen:: Anzeigen, die während der Wiedergabe geschaltet werden, nehmen in der Zeitleiste Zeit in Anspruch (Beispiel ist ein Pre-Roll).</li>
+    <li>Nichtlineare Anzeigen:: Unterbricht die Wiedergabe nicht; Overlay- und Companion-Anzeigen sind Beispiele</li>
   </ul>
-  <h3>Anzeigen-Standards</h3>
+  <h3>Anzeigenstandards</h3>
   <ul>
     <li>
-      <p>VMAP: „Anzeigen-Playlist“; spezifiziert Preroll, Midroll (s) und Postroll (URL zu einem VMAP-Dokument); Format ist XML</p>
+      <p>VMAP: "Anzeigenwiedergabeliste"; Gibt Pre-Roll, Mid-Roll (s) und Post-Roll (URL zu einem VMAP-Dokument) an. Format ist XML</p>
       <ul>
-        <li>DFP nennt VMAP-Dokumente als „Anzeigenregeln“; mit Anzeigenregeln können Sie alle Ihre Anzeigen auf dem Server konfigurieren, und jeder Kunde, der Anzeigenregeln versteht, verhält sich gleich; in „schlechten alten Zeiten“ Anzeigenkonfiguration am Client; Logik in das Publishing-System verschoben</li>
+        <li>DFP nennt VMAP-Dokumente "Anzeigenregeln". Mit Anzeigenregeln können Sie alle Ihre Anzeigen auf dem Server konfigurieren, und jeder Client, der die Anzeigenregeln versteht, verhält sich gleich. in "schlechten alten Zeiten" Anzeigenkonfiguration auf dem Client; Logik in Publishing-System verschoben</li>
       </ul>
     </li>
     <li>
-      <p>VAST: Individuelle Anzeigendetails; VMAP verweist auf ein VASTINA-Dokument mit Informationen zur Anzeige</p>
+      <p>VAST: Individuelle Anzeigendetails; VMAP verweist auf ein VAST-Dokument mit Informationen zur Anzeige</p>
     </li>
-    <li>Beispiel VAST von der Registerkarte Netzwerk in Chrome Dev Tools</li>
-		    <p><img src="vast-response.png"/></p>
+    <li>Beispiel VAST von der Registerkarte "Netzwerk" in den Chrome Dev Tools</li>
+		    <p><img src="vast-response.png"></p>
     <li>
-      <p>VPAID: Wie VAST, aber ein Standard für interaktive Anzeigen; Anzeige enthält ein Quiz- oder Goofy-Spiel (noch keine BC Player-Unterstützung)</p>
+      <p>VPAID: Wie VAST, aber ein Standard für interaktive Anzeigen; Anzeige enthält ein Quiz oder ein doofes Spiel (noch keine BC Player-Unterstützung)</p>
     </li>
   </ul>
-  <h1>Informationen zum IMA-Plu</h1>
+  <h1>Informationen zum IMA-Plug-in</h1>
   <ul>
     <li>
-      <p>IMA-Einschränkung: 2 Versionen der IMA-Bibliothek, Flash- oder HTML-Version können nicht beides verwenden</p>
+      <p>IMA-Einschränkung: 2 Versionen der IMA-Bibliothek, Flash- oder HTML-Version, können nicht beide verwenden</p>
       <ul>
-        <li>Standardeinstellungen für Plugin verwenden Flash, falls verfügbar (weil Flash-Anzeigen so weit verbreitet sind)</li>
-        <li>In der Konfiguration können Optionen für das Plugin standardmäßig auf HTML (<strong>AdtechOrder</strong>) umgestellt werden</li>
-        <li>Desktop Standard Flash, mobiler Standard-HTML-Code</li>
+        <li>Standardeinstellungen für das Plugin verwenden Flash falls verfügbar (da Flash-Anzeigen so weit verbreitet sind)</li>
+        <li>In der Konfiguration können die Optionen für das Plugin standardmäßig auf HTML umschalten (<strong>adTechOrder</strong>)</li>
+        <li>Desktop-Standard-Flash, mobiles Standard-HTML</li>
       </ul>
     </li>
     <li>
-      <p>Basisimplementierung von IMA Plugin</p>
+      <p>Grundlegende Implementierung des IMA Plugins</p>
       <ul>
-        <li>Fügen Sie JavaScript für das Plugin</li>
-        <li>IMA Plugin zum Spieler hinzufügen</li>
-        <li>ServerUrl für Anzeigen-Tag bereitstellen</li>
-        <li>Beispiel-Konfiguration</li>
-		    <p><img src="plugin-simple-config.png"/></p>
+        <li>Fügen Sie JavaScript für das Plugin hinzu</li>
+        <li>Fügen Sie dem Player das IMA-Plugin hinzu</li>
+        <li>Stellen Sie serverURL für das Anzeigen-Tag bereit</li>
+        <li>Beispielkonfiguration</li>
+		    <p><img src="plugin-simple-config.png"></p>
       </ul>
     </li>
     <li>
-      <p>Dynamisches Ad-Targeting: Konfiguration des IMA-Plugins nach dem Sammeln von Kundeninformationen (z. B. Alter der Zuschauer, dann Anzeigenregel)</p>
+      <p>Dynamisches Anzeigen-Targeting: Die Konfiguration des IMA-Plugins erfolgt nach dem Sammeln von Kundeninformationen (z. B. Alter der Zuschauer, dann Anzeigenregel auswählen).</p>
       <ul>
-        <li>Fügen Sie JavaScript für das Plugin</li>
-        <li>Rufen Sie das IMA-Plugin auf und bestehen Sie an diesem
+        <li>Fügen Sie JavaScript für das Plugin hinzu</li>
+        <li>Rufen Sie das IMA-Plugin auf und übergeben Sie die Optionen an diesem Punkt
           <ul>
-            <li>myPlayer.ima3 ({serverUrl:...})</li>
+            <li>meinPlayer.ima3({ serverURL: ...})</li>
           </ul>
         </li>
       </ul>
     </li>
-    <li>Begleiter-Anzeigen: Das IMA-Plugin wird sich nahtlos mit linearen Anzeigen und Overlays befassen, Begleitanzeigen können schwierig sein, da die Kommunikation zwischen dem Player und dem Rest der Seite erfolgen muss.;; Verwenden Sie die Implementierung der In-Page-Einbettung</li>
+    <li>Begleitanzeigen:: Das IMA-Plugin wird nahtlos mit linearen Anzeigen und Overlays umgehen, Begleitanzeigen können schwierig sein, da die Kommunikation zwischen dem Player und dem Rest der Seite erfolgen muss;;; Verwenden Sie die In-Page-Einbettungsimplementierung</li>
     <ul>
-    	<li>Verwenden Sie die Google Publisher Tags-Bibliothek (GPT) und füllen Sie automatisch die Begleiter-Werbeblöcke</li>
-    	<li>Gutes Tutorial auf der IMA-Website</li>
-    	<li>Verwenden Sie die In-Page-Einbettungsimplementierung für Begleitanzeigen, da iframe nicht mit der übergeordneten Seite interagieren</li>
-    	<li>Beispiel: JS und HTML für Begleitwerbung</li>
-		    <p><img src="companion-ad-script.png"/></p>
-		    <p><img src="companion-ad-html.png"/></p>
+    	<li>Verwenden Sie die GPT-Bibliothek (Google Publisher Tags) und füllen Sie die zugehörigen Anzeigenblöcke automatisch aus</li>
+    	<li>Gutes Tutorial auf der IMA-Website verfügbar</li>
+    	<li>Verwenden Sie die In-Page-Einbettungsimplementierung für Begleitanzeigen, da iframe nicht mit der übergeordneten Seite interagieren kann</li>
+    	<li>Beispiel: JS und HTML für Begleitanzeige</li>
+		    <p><img src="companion-ad-script.png"></p>
+		    <p><img src="companion-ad-html.png"></p>
     </ul>
   </ul>
   <h1>Ressourcen</h1>
   <ul>
-    <li>Allgemeine Informationen zu IMA: <a href="https://developers.google.com/interactive-media-ads/">https://developers.google.com/interactive-media-ads/</a>
+    <li>Allgemeine IMA-Informationen: <a href="https://developers.google.com/interactive-media-ads/">https://developers.google.com/interactive-media-ads/</a>
     </li>
-    <li>Problembehandlung: Video Suite Inspector (https://developers.google.com/interactive-media-ads/docs/vastinspector_dual) testet, ob Videoanhänger/Server funktionieren
-    	<ul><li>Stellen Sie sicher, dass Sie testen, ob die URL vor der Verwendung mit BC Player funktioniert, suchen Sie nach einem kompatiblen Anzeigenserver. Wenn hier nicht funktioniert, wird es im BC Player nicht funktionieren</li></ul>
+    <li>Fehlerbehebung: Der Video Suite Inspector (https://developers.google.com/interactive-media-ads/docs/vastinspector_dual) testet, ob der Video-Tag / Server funktioniert
+    	<ul><li>Testen Sie unbedingt, ob die URL funktioniert, bevor Sie sie mit BC Player verwenden, suchen Sie nach einem kompatiblen Anzeigenserver. Wenn hier nicht funktioniert, funktioniert es im BC Player nicht</li></ul>
     </li>
   </ul>
-  <h1>Dies ist die „Ad-API“ des Brightcove Players</h1>
+  <h1>Dies ist die "Anzeigen-API" von Brightcove Player.</h1>
   <ul>
-  	<li>https://github.com/videojs/videojs-contrib-ads: Interessant für PARTNER, die eigene Werbereimplementierung schreiben</li>
-    <li>Von der Website „Das Videojs-Contrib-Ads-Plugin bietet allgemeine Funktionen, die von Videowerbebibliotheken benötigt werden, die mit video.js arbeiten. Es kümmert sich um eine Reihe von Bedenken für Sie und reduziert den Code, den Sie für Ihre Anzeigenintegration schreiben müssen.“</li>
-    <li>Anwendungsfall: Möglichkeit, Bumper zu zeigen, die einen anderen Stil als Anzeigen haben</li>
+  	<li>https://github.com/videojs/videojs-contrib-ads: Interessant für PARTNER, die eine eigene Anzeigenimplementierung schreiben</li>
+    <li>Von der Website "Das Videojs-Contrib-Ads-Plugin bietet allgemeine Funktionen, die von Video-Werbebibliotheken benötigt werden, die mit video.js arbeiten. Es kümmert sich um eine Reihe von Problemen für Sie und reduziert den Code, den Sie für Ihre Anzeigenintegration schreiben müssen. "</li>
+    <li>Anwendungsfall: Möglichkeit, Stoßstangen anzuzeigen, die einen anderen Stil als Anzeigen haben</li>
   </ul>
 </body>
 
