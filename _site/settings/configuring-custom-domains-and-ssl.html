@@ -1,0 +1,1666 @@
+﻿<!DOCTYPE html>
+<html lang="de"> 
+    <head>
+        <title>Benutzerdefinierte Domänen und SSL konfigurieren</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="In diesem Thema erfahren Sie, wie Sie benutzerdefinierte Domänen und SSL für eine Portal-Erfahrung konfigurieren.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Zuhause</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/get-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Erste Schritte</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/step-step-creating-and-publishing-portal-experience.html">Erstellen einer Portal-Erfahrung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/step-step-creating-and-publishing-page-experience.html">Erstellen einer In-Page-Erfahrung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/creating-and-managing-gallery-experiences.html">Erlebnisse erstellen und verwalten</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/getting-started-brightcove-gallery.html">Erste Schritte mit Brightcove Gallery</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/overview-gallery-experiences.html">Überblick über Galerieerfahrungen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/training/index.html">Ausbildung</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/experiences/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Erlebnisse</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/portal/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Portal</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Erste Schritte</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/getting-started/overview-creating-editing-and-publishing-portal-experiences.html">Erstellen, Bearbeiten und Veröffentlichen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-introduction-gallery.html">Schulung - Einführung in die Galerie</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-building-portal-experiences-using-gallery.html">Schulung - Portal-Erfahrungen aufbauen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/step-step-creating-and-publishing-portal-experience.html">Schritt für Schritt: Erstellen und Veröffentlichen</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/templates/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Vorlagen</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/overview-gallery-portal-templates.html">Übersicht über Portalvorlagen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">Aktualisieren von Galerievorlagen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/working-with-immersion-template.html">Arbeiten mit der Immersionsportal-Vorlage</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-catalogue-template-settings.html">Anpassen der Katalogvorlageneinstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-chronicle-template-settings.html">Anpassen der Chronikvorlageneinstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-immersion-template-settings.html">Anpassen der Einstellungen der Immersionsvorlage</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-marquee-template-settings.html">Anpassen der Einstellungen für Laufschriftvorlagen</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/videos/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Videos hinzufügen</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-videos-portal-experience.html">Hinzufügen Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-video-cloud-videos-portal-experience.html">Hinzufügen von Video-Cloud-Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-youtube-videos-portal-experience.html">Hinzufügen von YouTube-Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/downloading-videos-portal-experience.html">Herunterladen von Videos</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/customizing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Personalisieren</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-site-editor-customize-portal-experience.html">Verwenden des Site-Editors</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-appearance-and-behavior-portal-experience.html">Anpassen von Aussehen und Verhalten</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-content-portal-experience-pages.html">Anpassen des Seiteninhalts</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-player-and-lead-form-settings-portal-experience.html">Anpassen der Player- und Lead-Formulareinstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-configuration-portal-experience.html">Anpassen der Site-Konfiguration</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">Anpassen der Site-Funktionen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-social-settings-portal-experience.html">Anpassen der sozialen Einstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-style-portal-experience.html">Anpassen des Stils</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">Anpassen der Video- und Wiedergabeeinstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-settings-portal-experience.html">Anpassen der Videoeinstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-custom-fonts-portal-experience.html">Verwenden von benutzerdefinierten Schriftarten</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/changing-player-layout-portal-experience.html">Ändern des Player-Layouts</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/configuring-details-portal-experience.html">Details konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-multi-lingual-metadata.html">Verwendung mehrsprachiger Metadaten</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/other/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Weitere Funktionen</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-calls-action-portal-experience.html">Handlungsaufforderungen konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/indexing-gallery-portal-experience.html">Indizierung eines Portalangebots</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/using-lead-form-portal-experience.html">Verwenden eines Lead-Formulars</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/exporting-gallery-lead-data.html">Exportieren von Galerie-Lead-Daten</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-search-engine-optimization-settings-portal-experience.html">SEO-Einstellungen konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-third-party-tracking-portal-experience.html">Konfigurieren der Nachverfolgung durch Dritte</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/publishing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Publizieren</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">Vorschau und Veröffentlichung</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Zuweisen einer benutzerdefinierten Domäne</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/controlling-access-portal-experience.html">Zugriff kontrollieren</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/inpage/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Auf der Seite</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Erste Schritte</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/getting-started/overview-creating-editing-and-publishing-page-experiences.html">Überblick: In-Page-Erlebnisse erstellen und veröffentlichen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-introduction-gallery.html">Schulung - Einführung in die Galerie</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-building-page-experiences-using-gallery.html">Schulung - Aufbau von In-Page-Erlebnissen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/step-step-creating-and-publishing-page-experience.html">Schritt für Schritt: Erstellen und Veröffentlichen einer In-Page-Erfahrung</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/templates/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Vorlagen</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/templates/overview-gallery-page-experience-templates.html">Übersicht der Vorlagen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">Aktualisieren von Galerievorlagen</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/customizing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Personalisieren</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/customizing-page-experience.html">Ein Erlebnis anpassen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-components-page-experience.html">Komponenten hinzufügen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-videos-page-experience.html">Hinzufügen Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/customizing-style-page-experience.html">Anpassen des Stils</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-interactions-page-experience.html">Interaktionen hinzufügen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-companion-components-page-experience.html">Companion-Komponenten konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-details-page-experience.html">Details konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-settings-page-experience.html">Einstellungen konfigurieren</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/other/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Weitere Funktionen</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/using-dynamic-video-overrides-page-experience.html">Verwenden dynamischer Videoüberschreibungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/configuring-video-downloads-page-experience.html">Konfigurieren von Video-Downloads</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/creating-custom-themes-page-experiences.html">Benutzerdefinierte Themen erstellen</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/publishing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Publizieren</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/publishing/previewing-and-publishing-page-experience.html">Vorschau und Veröffentlichung</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">Aktualisieren von Galerievorlagen</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/analytics/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Analytik</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-analytics.html">Analytics prüfen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-analytics-dashboard.html">Überprüfen des Analytics-Dashboards</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-video-analytics.html">Überprüfung von Videoanalysen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-calls-action-analytics.html">Überprüfen von Call-to-Action-Analysen</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/live/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Live-Veranstaltung</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/live/portal/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Portal</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-live-event-portal-experience.html">Erstellen eines Live-Veranstaltungsportals</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-pre-event-state-portal-event-experience.html">Erstellen des Pre-Event-Status</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-live-event-state-portal-event-experience.html">Erstellen des Live-Ereignisstatus</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-post-event-state-portal-event-experience.html">Erstellen des Post-Event-Status</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/customizing-live-event-portal-settings.html">Anpassen der Einstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">Vorschau und Veröffentlichung</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Zuweisen einer benutzerdefinierten Domäne</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/controlling-access-portal-experience.html">Zugriff kontrollieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/adding-pigeonhole-live-event-portal-experience.html">Hinzufügen einer Schublade zu einem Live-Portal</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/live/in-page/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Auf der Seite</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/in-page/creating-live-event-page-experience.html">Erstellen einer Live-Veranstaltung auf der Seite</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/in-page/adding-pigeonhole-live-event-page-experience.html">Taubenfach hinzufügen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/publishing/previewing-and-publishing-page-experience.html">Vorschau und Veröffentlichung</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Virtuelle Veranstaltung</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Erste Schritte</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/creating-virtual-event-experience.html">Erstellen einer virtuellen Event-Erfahrung</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/getting-started-agenda-module.html">Erste Schritte mit dem Agenda-Modul</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/overview-virtual-event-template.html">Übersicht über die Vorlage für virtuelle Ereignisse</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/using-site-editor-customize-virtual-event-experience.html">Verwenden des Site-Editors</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/videos/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Videos verwalten</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/videos/adding-videos-virtual-event-experience.html">Hinzufügen Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/videos/using-simulated-live-videos.html">Verwenden von simulierten Live-Videos</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Agenda und Redner</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/creating-agenda-virtual-event-experience.html">Erstellen einer Event-Agenda-Datei</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/creating-speakers-virtual-event-experience.html">Erstellen einer Datei für Veranstaltungssprecher</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/managing-agenda-virtual-event-experience.html">Verwaltung der Veranstaltungsagenda</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/managing-event-speakers.html">Veranstaltungsredner verwalten</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/customizing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Personalisieren</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-calls-action-portal-experience.html">Handlungsaufforderungen konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/configuring-details-portal-experience.html">Details konfigurieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-appearance-and-behavior-virtual-event-experience.html">Anpassen von Aussehen und Verhalten</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-content-virtual-event-experience-pages.html">Anpassen des Seiteninhalts</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-configuration-portal-experience.html">Anpassen der Site-Konfiguration</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">Anpassen der Site-Funktionen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-style-virtual-event-experience.html">Anpassen des Stils</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">Anpassen der Video- und Wiedergabeeinstellungen</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/integrating-pigeonhole-virtual-event-experience.html">Pigeonhole integrieren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/managing-event-sponsors.html">Verwaltung von Veranstaltungssponsoren</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-multi-lingual-metadata.html">Verwendung mehrsprachiger Metadaten</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/other/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Weitere Funktionen</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/other/using-role-based-access-control.html">Verwenden der rollenbasierten Zugriffssteuerung</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/other/getting-analytics.html">Exportieren von Daten der virtuellen Ereignisanzeige</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/landing/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Landingpage</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Zuweisen einer benutzerdefinierten Domäne</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/landing/creating-landing-page-experience.html">Erstellen einer Landing Page-Erfahrung</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/other/exporting-gallery-lead-data.html">Exportieren von Galerie-Lead-Daten</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">Vorschau und Veröffentlichung</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/other/using-lead-form-portal-experience.html">Verwenden eines Lead-Formulars</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/customizing/using-site-editor-customize-portal-experience.html">Verwenden des Site-Editors zum Anpassen einer Erfahrung</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Allgemeine Informationen</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/gallery-system-requirements.html">Systemanforderungen für die Galerie</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/troubleshooting-brightcove-gallery-issues.html">Fehlerbehebung bei Problemen mit der Brightcove-Galerie</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-gallery-cookies.html">Cookies der Brightcove-Galerie</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/settings/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Galerie-Einstellungen</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-gallery-settings.html">Galerieeinstellungen konfigurieren</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-youtube-settings.html">YouTube-Einstellungen konfigurieren</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-access-control-profiles.html">Konfigurieren von Zugriffssteuerungsprofilen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-custom-domains-and-ssl.html" aria-current="page">Benutzerdefinierte Domänen und SSL konfigurieren</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-auth0.html">Sichern einer Portal-Erfahrung mit Auth0</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-okta.html">Sichern eines Portal-Erlebnisses mit Okta</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-ssl.html">Sichern einer Portal-Erfahrung mit SSL</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-single-sign-active-directory-federation-services.html">Konfigurieren von Single Sign-On mit ADFS</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/develop/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Entwickler</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-code-snippets.html">In-Page Experience Code-Snippets</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experiences-custom-css-reference.html">Benutzerdefinierte CSS-Referenz für seiteninterne Erfahrungen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/embedding-brightcove-page-experiences-cms.html">Einbetten von In-Page-Erlebnissen in ein CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/overview-page-experience-api.html">Überblick: In-Page-Experience API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/overview-page-experience-client-api.html">Überblick: In-Page Experience Client API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-api-error-reference.html">In-Page Experience API-Fehlerreferenz</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-client-api-sample.html">Beispiel für eine In-Page Experience Client-API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/quick-start-page-experience-platform-rest-api.html">Schnellstart: In-Page Experience Platform (REST) API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/reference.html">In-Page Experience Platform-API-Referenz</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/in-page-exerience-client-api/ClientApi.html">In-Page Experience Client-API-Referenz</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/release-notes/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Hinweise zur Veröffentlichung</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/gallery-release-notes.html">Versionshinweise zur Galerie</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/gallery-template-release-notes.html">Versionshinweise zu Galerievorlagen</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Unterstützung</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Brightcove System Status“</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Passwort für das Support-Portal zurücksetzen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Kontakt zum Vertrieb</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Zuhause</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/settings/">Einstellungen</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Benutzerdefinierte Domänen und SSL konfigurieren</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<article class="bcls-article">
+  <h1>Benutzerdefinierte Domänen und SSL konfigurieren</h1>
+  <summary>In diesem Thema erfahren Sie, wie Sie benutzerdefinierte Domänen und SSL für eine Portal-Erfahrung konfigurieren.</summary>
+  <section class="bcls-section">
+    <p>Wenn Sie zum ersten Mal eine Portal-Erfahrung erstellen, wird ihr eine zufällige Domäne mit dem Format zugewiesen <code translate="No">&lt;site-slug&gt;.bcvp0rtal.com </code>. Zum Beispiel <code translate="No">http://site-148393.bcvp0rtal.com </code>. Wenn die Site veröffentlicht wird, können die Betrachter auf die Site in dieser Domain zugreifen. Galerie bietet die Möglichkeit, Video-Websites in einer von Brightcove bereitgestellten Domain oder in Ihrer eigenen benutzerdefinierten Domain zu veröffentlichen.</p>
+    <p>Gallery Portal Experiences können auch mehreren URLs zugewiesen werden, sodass Publisher dieselbe Site für verschiedene Funktionen verwenden können, ohne die Site duplizieren zu müssen. Wenn Sie beispielsweise eine Videoseite haben, die Sie in einer Kampagne und als Hauptvideoportal verwenden möchten, können Sie verschiedene URLs markieren und sie alle derselben Website zuweisen. Es ist keine Site-Duplizierung erforderlich und Sie können URLs einfach löschen, wenn sie nicht mehr benötigt werden.</p>
+    <aside class="bcls-aside bcls-aside--information">Hinweis: Wenn Sie mit SSL-Zertifikaten arbeiten, teilen Sie Ihren privaten Schlüssel unter keinen Umständen oder senden Sie ihn an den Brightcove Support.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="bcdomain">Verwenden einer von Brightcove bereitgestellten Domäne</h2>
+    <p>Mit den von Brightcove bereitgestellten Domains können Sie schnell und einfach eine Domain für Ihre Site erstellen, ohne mit Ihrer IT-Abteilung einen benutzerdefinierten CNAME erstellen oder einen neuen Domainnamen bei einem Registrar registrieren zu müssen. Sie sind „out of the box“ verfügbar und können mit einem Klick auf eine Schaltfläche implementiert werden. Es gibt drei von Brightcove bereitgestellte Domänen:</p>
+    <ul>
+      <li>brightcovegallery.com</li>
+      <li>gallery.video</li>
+      <li>bcvp0rtal.com (das standardmäßig Websites zugewiesen ist)</li>
+    </ul>
+    <p>Alle von ihnen unterstützen SSL. Um auf die SSL-Site zuzugreifen, fügen Sie einfach https zur URL hinzu. Zum Beispiel <code translate="No">https://marquee.brightcovegallery.com </code></p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="puburl">Verwenden einer benutzerdefinierten Domäne (Herausgeber registriert)</h2>
+    <p>Videoseiten können auch auf Ihrer eigenen benutzerdefinierten Domain gehostet werden, die Sie registrieren. Auf diese Weise können Sie die URL brandmarken und sie mit Ihrem aktuellen Website/URL-Namenskonstrukt konsistent halten. Dies erfordert, dass Sie den Domainnamen registrieren und dann einen benutzerdefinierten CNAME-Datensatz bei Ihrem Hosting-Anbieter konfigurieren. Im folgenden <a href="#cname">Abschnitt finden Sie Informationen</a> zur Konfiguration eines CNAME-Datensatzes.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="create">Erstellen einer benutzerdefinierten Domäne</h2>
+    <p>Gehen Sie folgendermaßen vor, um eine benutzerdefinierte Domäne zu erstellen:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Öffne das <strong>Galerie</strong> Modul.</li>
+      <li>Klicken Sie auf der Startseite auf das Einstellungssymbol (<img class="bcls-image--no-border" alt="" src="/assets/images/get-started/icon-settings.png"/>).</li>
+      <li>Klicken Sie in der linken Navigation auf die <strong>Benutzerdefinierte Domänen und SSL</strong> Verknüpfung.</li>
+      <li>Klicken Sie auf Benutzerdefinierte Domäne <span class="button-blue">erstellen</span>.</li>
+      <li>Wählen Sie eine zu verwendende Domänenoption aus:
+        <ul>
+          <li><strong>brightcovegallery.com</strong> - Die Site-Domain hat das Format <code translate="No">&lt;your domain&gt;.brightcovegallery.com</code>.</li>
+          <li><strong>gallery.video</strong> - Die Site-Domain hat das Format <code translate="No">&lt;your domain&gt;.gallery.video </code>.</li>
+          <li><strong>Benutzerdefiniert</strong> - Wählen Sie aus, um die Website auf Ihrer eigenen benutzerdefinierten Domain zu hosten. Wenn Sie diese Option auswählen, müssen Sie auch einen CNAME-Datensatz bei Ihrem Hosting-Anbieter <a href="#cname">konfigurieren</a>.</li>
+        </ul>
+      </li>
+      <li>Geben Sie den Domainnamen ein. Es wird eine Meldung angezeigt, die angibt, ob die Domäne gültig oder ungültig ist. Wenn der Domainname ungültig ist, geben Sie einen neuen Domainnamen ein.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Erstellen Sie eine benutzerdefinierte Domain" src="/assets/images/settings/node16440-create-custom-domain.png"/></figure>
+      </li>
+      <li>Wenn Sie die Website mit einer von Brightcove bereitgestellten Domäne veröffentlichen, besteht die Möglichkeit, SSL für diese Domäne <strong>durchzusetzen</strong>. Prüfen <strong>SSL in dieser Domain erzwingen (empfohlen) </strong>Aktivieren einer Umleitung von der Nicht-SSL-Version der Site, wenn ein Viewer zu dieser Site wechselt.</li>
+      <li>Wenn Sie die Website in Ihrer eigenen benutzerdefinierten Domain veröffentlichen, haben Sie die Möglichkeit, die Website mit SSL zu sichern. Überprüf den <strong>Verwenden Sie SSL</strong> Kontrollkästchen, um die Website mit SSL zu sichern. Informationen zur Verwendung von SSL finden Sie unter <a href="/settings/securing-portal-experience-ssl.html">Sichern einer Portal-Erfahrung mit SSL</a>.</li>
+      <li>Prüfen <strong>Umleitung aktivieren</strong> um diese URL zu einer anderen URL umzuleiten. In der Regel würde dies erst überprüft, nachdem diese Domain eine Weile verwendet wurde. Wenn diese Option ausgewählt ist, geben Sie die <strong>Umleitungs-URL ein, zu der</strong> diese vorhandene URL umgeleitet werden soll.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Erstellen Sie eine benutzerdefinierte Domain" src="/assets/images/settings/node16440-enable-redirect.png"/></figure>
+        Aktivieren Sie Eine permanente Weiterleitung <strong>verwenden (HTTP-Statuscode 301),</strong> um anzugeben, dass die Weiterleitung dauerhaft ist. Wenn eine Suchmaschinenspinne einen 301-Statuscode im Antwortheader einer Webseite findet, versteht sie, dass diese Webseite nicht mehr existiert und ersetzt die indizierte URL durch die neue. Diese Option behält Ihren alten Webseitenverkehr und Ihren Seitenrang bei.
+      </li>
+      <li>Klicken Sie auf <span class="button-blue">Speichern</span>. Eine Liste der konfigurierten Domänen wird angezeigt.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Liste der Domains" src="/assets/images/settings/node16440-domain-list.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">Hinweis: Wenn Sie eine von Brightcove bereitgestellte Domäne verwenden, wird der SSL-Status immer <strong>bereitgestellt</strong>. Dies bedeutet, dass durch das Hinzufügen von <strong>https://</strong> am Anfang der Site-URL die Datenübertragung zwischen Ihrem Browser und der Galerie-Site sicher ist.</aside>
+      </li>
+      <li>Erstellen Sie nach Bedarf zusätzliche Domains.</li>
+    </ol>
+    <p>Um eine Domain zu bearbeiten oder zu löschen, klicken Sie auf Bearbeiten (<img alt="Bearbeitungssymbol" src="/assets/images/settings/node16440-edit-icon.png"/> ) oder löschen (<img alt="Symbol löschen" src="/assets/images/settings/node16440-delete-icon.png"/> ) Tasten.</p>
+    <p>Sobald benutzerdefinierte Domänen erstellt wurden, können sie einer Site als Teil der Site-Eigenschaften zugewiesen werden. Weitere Informationen finden Sie unter <a href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Zuweisen einer benutzerdefinierten Domäne zu einer Portalerfahrung</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="cname">Konfigurieren von CNAME-Datensätzen mit Ihrem Hosting-Anbieter</h2>
+    <aside class="bcls-aside bcls-aside--information">Hinweis: CNAME-Datensätze müssen nur konfiguriert werden, wenn benutzerdefinierte Domänen einer Site zugewiesen werden. CNAME-Datensätze müssen NICHT für Websites erstellt werden, die von Brightcove bereitgestellte Domains verwenden.</aside>
+    <aside class="bcls-aside bcls-aside--information">Hinweis: Die Galerie unterstützt keine A-Einträge für Top-Level-Domains.</aside>
+    <p>Die Schritte zum Konfigurieren eines CNAME-Datensatzes (Canonical Name) unterscheiden sich je nach Ihrem Hosting-Anbieter. Sie müssen für jede benutzerdefinierte Domäne, die Sie verwenden, einen CNAME-Datensatz konfigurieren. Wenn Ihre Site für die Verwendung von SSL konfiguriert ist, sollte der CNAME-Eintrag auf die CloudFront-URL verweisen. Sehen <a href="/settings/securing-portal-experience-ssl.html">Sichern einer Portal-Erfahrung mit SSL</a> zur Information. Beachten Sie, dass benutzerdefinierte Domänen eine Subdomain enthalten müssen, um als CNAME konfiguriert zu werden, ex: <code translate="No">video </code> muss vorher platziert werden, <code translate="No">brightcovelearning.com </code> damit ich meine CNAME.</p>
+    <p>Die CNAME-Werte werden als Teil der Einstellungen für benutzerdefinierte Domänen und SSL angezeigt.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node16440-cname-list.png"/></figure>
+    <p>In diesem Beispiel würde ich für die benutzerdefinierte Domäne von <code translate="No">video.brightcovelearning.com </code> einen <strong></strong> CNAME-Datensatz hinzufügen und eine Vielzahl von <code translate="No">video </code> und weisen Sie darauf hin <code translate="No">d3mkhzp6k6x3hl.cloudfront.net</code>.</p>
+    <p>Beachten Sie, dass beim direkten Durchsuchen einer Cloudfront-URL der Fehler "Seite nicht gefunden" zurückgegeben wird (404). EIN <code translate="No">curl</code> Befehl kann verwendet werden, um die Domänenkonfiguration zu überprüfen. Für dieses Beispiel:</p>
+    <pre>
+<code translate="No">curl -H "Host: video.brightcovelearning.com" https://d3mkhzp6k6x3hl.cloudfront.net</code>
+</pre>
+    <p>Die Curl-Anweisung sollte den Inhalt der Site-Homepage zurückgeben.</p>
+    <p>Möglicherweise müssen Sie sich an Ihren Netzwerkadministrator oder Webhosting-Anbieter wenden, um Hilfe bei diesem Schritt zu erhalten. Denken Sie daran, dass es bis zu 48 Stunden dauern kann, bis DNS-Änderungen wirksam werden.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="secure">Sichern von Websites mit SSL</h2>
+    <p>Es gibt zwei Möglichkeiten, ein Portal Experience&nbsp;mit SSL zu sichern:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Für Websites, die mit dem zugewiesenen Site-Slug (d. h. <code translate="No">&lt;site-slug&gt;.bcvp0rtal.com </code>) veröffentlicht werden oder eine von Brightcove bereitgestellte Domäne verwenden, ist keine Konfiguration zur Unterstützung von https erforderlich. Hinzufügen <strong>https: //</strong> Durch den Beginn der URL wird die Datenübertragung zwischen Ihrem Browser und der Galerie-Site gesichert. Sie können auch SSL in dieser Domäne <strong>erzwingen (empfohlen) auswählen,</strong> um eine Weiterleitung von der Nicht-SSL-Version der Site zu aktivieren, wenn ein Viewer zu ihm geht.</li>
+      <li>Überprüfen Sie für Websites, die mit Ihrer eigenen benutzerdefinierten Domain gehostet werden, die <strong>Verwenden Sie SSL</strong> Option bei der Eingabe Ihres Domainnamens. Sie werden dann aufgefordert, Ihre Zertifikatsinformationen einzugeben. Weitere Informationen finden Sie unter <a href="/settings/securing-portal-experience-ssl.html">Sichern einer Portal-Erfahrung mit SSL</a>.</li>
+    </ol>
+  </section>
+</article>
+
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Inhalt der Seite</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove-Unterstützung</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Systemstatus</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Kontaktieren Sie den Support</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Suche in der gesamten Dokumentation</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Ausbildung</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Online-Kurse</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Für einen Kurs anmelden</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Brightcove-Akademie</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">BrightCove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Bright Spot Community Forum</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Hinweise zur Produktfreigabe</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Aktualisierte Dokumentation</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Alle Rechte vorbehalten.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Datenschutz</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Bedingungen &amp; Bedingungen</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 
